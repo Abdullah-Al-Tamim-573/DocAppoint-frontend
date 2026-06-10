@@ -1,9 +1,10 @@
+import Banner from "@/Components/Shered/Banner/Banner";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-        I am Home Page
+       <Banner></Banner>
     </>
   );
 }
