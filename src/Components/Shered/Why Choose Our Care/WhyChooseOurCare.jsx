@@ -10,7 +10,7 @@ const WhyChooseOurCare = () => {
   return (
     <div className="w-full  sm:max-w-[70%] xl:max-w-[80%] mx-auto shadow-2xl md:my-5 rounded-2xl">
       {/* Main Container (White Background, Rounded Corners, and Light Shadow) */}
-      <div className="bg-white rounded-3xl  sm:p-4 md:px-8 md:py-7 lg:p-10">
+      <div className="bg-white rounded-3xl pb-5  sm:p-4 md:px-8 md:py-7 lg:p-10">
         {/* Grid Layout for 4 Sections */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-2  xl:grid-cols-4  xl:gap-5 justify-items-center md:gap-6 lg:gap-4 divide-gray-100">
           {/* Section 1: Trusted Specialists */}
