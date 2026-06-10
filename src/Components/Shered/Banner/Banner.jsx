@@ -11,7 +11,7 @@ import BannerFooterFeatures from "../Banner Footer Features/BannerFooterFeatures
 const Banner = () => {
   return (
     <div className="xl:relative">
-      <div className="banner-parent xl:relative xl:top-0 xl:left-20 flex my-10 flex-col-reverse xl:flex-row gap-5 mx-auto items-center justify-center">
+      <div className="banner-parent gap-5 xl:gap-30  flex my-10 flex-col-reverse xl:flex-row  mx-auto items-center justify-center">
         {/* Banner Left Part */}
         <div className=" bg-slate-50/50 flex  items-center justify-center p-4">
           <div className="max-w-2xl   text-center xl:text-left space-y-6 fontFamily-sans">
@@ -51,36 +51,17 @@ const Banner = () => {
             {/* Banner Footer Features */}
             <div className="grid grid-cols-2 justify-between mx-auto  xl:justify-items-start  sm:grid-cols-3 gap-4 pt-6 relative left-2  w-[80%] sm:w-full sm:static ">
               {/* Verified Doctors */}
-              {/* <div className="flex border   gap-2.5 text-gray-800 font-semibold text-sm">
-                <div className="bg-[#E6F7F5] p-1 rounded-full text-[#0D9488]">
-                  <CheckCircle2 className="w-5 h-5 fill-[#0D9488] text-white" />
-                </div>
-                <span>Verified Doctors</span>
-              </div> */}
               <BannerFooterFeatures text={'Verified Doctors'} icon={CheckCircle2} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
 
               {/* Secure & Safe */}
               <BannerFooterFeatures text={'Secure & Safe'} icon={Shield} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
-              {/* <div className="flex items-center  border gap-2.5 text-gray-800 font-semibold text-sm ">
-                <div className="bg-[#E6F7F5] p-1 rounded-full text-[#0D9488]">
-                  <Shield className="w-5 h-5 fill-[#0D9488] text-white" />
-                </div>
-                <span>Secure & Safe</span>
-              </div> */}
-
               {/* 24/7 Support */}
               <BannerFooterFeatures text={'24/7 Support'} icon={Clock} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
-              {/* <div className="flex items-center border  gap-2.5   text-gray-800 font-semibold text-sm ">
-                <div className="bg-[#E6F7F5] p-1  rounded-full text-[#0D9488]">
-                  <Clock className="w-5 h-5 fill-[#0D9488] text-white" />
-                </div>
-                <span>24/7 Support</span>
-              </div> */}
             </div>
           </div>
         </div>
         {/* Banner Right Part */}
-        <div className="w-[400px] md:w-[600px] xl:w-[750px]">
+        <div className="w-[200px] md:w-[400px] xl:w-[500px]">
               <Image className="w-full h-auto object-contain " src={'/Images/banner.png'} width={500} height={500} alt="banner image"></Image>
         </div>
       </div>

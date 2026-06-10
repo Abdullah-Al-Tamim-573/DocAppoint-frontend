@@ -9,8 +9,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 ">
-      <div className="max-w-[97%] mx-auto h-20  flex items-center justify-between">
+    <nav className="sticky border top-0 z-50 w-full border-b border-gray-200 bg-white/80 ">
+      <div className="max-w-[95%] mx-auto h-20  flex items-center justify-between">
         {/* LEFT SIDE */}
         <div className=" w-[180px] sm:w-[200px] md:w-[150px] lg:w-[180px]">
           {/* LOGO */}
