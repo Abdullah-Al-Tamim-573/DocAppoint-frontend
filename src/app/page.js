@@ -1,4 +1,5 @@
 import Banner from "@/Components/Shered/Banner/Banner";
+import HowItWorks from "@/Components/Shered/How It Works/HowItWorks";
 import OurServices from "@/Components/Shered/Our Services/OurServices";
 import WhyChooseOurCare from "@/Components/Shered/Why Choose Our Care/WhyChooseOurCare";
 
@@ -10,6 +11,7 @@ export default function Home() {
        <Banner></Banner>
       <WhyChooseOurCare></WhyChooseOurCare>
       <OurServices></OurServices>
+      <HowItWorks></HowItWorks>
     </>
   );
 }
