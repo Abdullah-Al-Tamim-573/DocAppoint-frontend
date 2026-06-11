@@ -6,8 +6,9 @@ import { Quote, Star } from "lucide-react";
 const PatientReviewCard = ({patientReviewText, patientName}) => {
   return (
     <>
+   
       
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-3xl p-5 md:p-8 shadow-sm border border-gray-100">
           <Quote className="text-[#14b8a6] mb-4" size={34} />
 
           <div className="flex items-center gap-1 text-yellow-400 mb-5">

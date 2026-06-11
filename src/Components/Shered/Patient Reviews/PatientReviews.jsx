@@ -4,19 +4,19 @@ import ReviewSlider from "../ReviewSlider/ReviewSlider";
 
 const PatientReviews = () => {
   return (
-    <section className="w-full bg-[#f5f9ff] py-20">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-[80%] mx-auto bg-[#f5f9ff] py-20">
+      <div className="max-w-7xl mx-auto px-4 text-center md:text-left">
        
         {/* Top Content */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 mb-3">
 
           {/* Left Side */}
           <div className="max-w-sm">
-            <p className="text-[#14b8a6] font-semibold uppercase tracking-wider text-sm mb-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-teal-600 block mb-2">
               Patients Love Us
             </p>
 
-            <h2 className="text-4xl font-bold text-[#1e293b] leading-tight">
+            <h2 className="font-extrabold text-slate-900 text-2xl lg:text-3xl">
               What Our Patients Say
             </h2>
 
@@ -28,7 +28,7 @@ const PatientReviews = () => {
 
         <ReviewSlider></ReviewSlider>
       </div>
-    </section>
+    </div>
   );
 };
 
