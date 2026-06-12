@@ -42,7 +42,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/appointments"
+                href="/allAppointments"
                 className="hover:text-teal-500 transition-all duration-300"
               >
                 All Appointments
