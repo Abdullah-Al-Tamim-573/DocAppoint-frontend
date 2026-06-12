@@ -13,6 +13,7 @@ export default function Home() {
       <OurServices></OurServices>
       <HowItWorks></HowItWorks>
       <PatientReviews></PatientReviews>
+      
     </>
   );
 }
