@@ -1,11 +1,11 @@
-import React from "react";
+
 import DoctorAppointmentAnimation from "../Animation/DoctorAppointmentAnimation";
 import HowItWorksCards from "../How It Works Cards/HowItWorksCards";
 
 const HowItWorks = () => {
   return (
     <>
-      <div className="bg-[#f8fbfb] max-w-[80%] mx-auto  lg:py-10 overflow-hidden">
+      <div className="bg-[#f8fbfb] max-w-[85%] mx-auto  lg:py-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 text-center md:text-left">
           <div className="grid xl:grid-cols-2 gap-12 items-center justify-items-center">
             {/* Left Side */}

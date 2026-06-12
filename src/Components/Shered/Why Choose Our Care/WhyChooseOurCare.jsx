@@ -8,7 +8,7 @@ import FeatureCard from "../FeatureCard/FeatureCard";
 
 const WhyChooseOurCare = () => {
   return (
-    <div className="w-full  sm:max-w-[70%] xl:max-w-[80%] mx-auto shadow-2xl md:my-5 rounded-2xl">
+    <div className="w-full   xl:max-w-[85%] mx-auto shadow-2xl md:my-5 rounded-2xl">
       {/* Main Container (White Background, Rounded Corners, and Light Shadow) */}
       <div className="bg-white rounded-3xl pb-5  sm:p-4 md:px-8 md:py-7 lg:p-10">
         {/* Grid Layout for 4 Sections */}

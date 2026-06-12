@@ -1,10 +1,10 @@
 
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+
 import ReviewSlider from "../ReviewSlider/ReviewSlider";
 
 const PatientReviews = () => {
   return (
-    <div className="max-w-[80%] mx-auto bg-[#f5f9ff] py-20">
+    <div className="max-w-[85%] mx-auto bg-[#f5f9ff] py-20">
       <div className="max-w-7xl mx-auto px-4 text-center md:text-left">
        
         {/* Top Content */}

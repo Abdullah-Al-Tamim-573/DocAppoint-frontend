@@ -2,7 +2,7 @@ import OurServicesCard from "../Our Services Card/OurServicesCard";
 
 const OurServices = () => {
   return (
-    <div className="py-16 px-4 max-w-[80%] mx-auto font-sans bg-slate-50/50">
+    <div className="py-16 px-4 max-w-[85%] mx-auto font-sans bg-slate-50/50">
       {/* Our Services text */}
       <div className="flex text-center md:text-left flex-col md:flex-row md:justify-between md:items-end mb-10 gap-4">
         <div>
