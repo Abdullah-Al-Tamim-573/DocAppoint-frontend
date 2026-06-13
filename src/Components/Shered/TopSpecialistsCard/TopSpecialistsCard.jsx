@@ -1,17 +1,17 @@
 import { MapPin, Star } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const TopSpecialistsCard = ({doctor}) => {
-    // console.log(doctor)
-    let {_id, specialty, rating, name, location, image, hospital, fee, experience, description, availability} = doctor;
+    
+    let {_id, specialty, rating, name, image, hospital, fee, experience} = doctor;
     return (
         <> 
 
             <div   
             className="
-             
-              group
+              
               bg-white
               rounded-2xl
               border
@@ -20,8 +20,8 @@ const TopSpecialistsCard = ({doctor}) => {
               shadow-sm
               transition-all
               duration-300
-              hover:-translate-y-2
-              hover:shadow-xl
+              hover:-translate-y-1
+              hover:shadow-md
               hover:border-teal-200
             "
           >
@@ -49,15 +49,11 @@ const TopSpecialistsCard = ({doctor}) => {
                     </p>
                   </div>
 
-                  <div className="flex items-center  gap-1 bg-teal-600 text-white text-xs px-2 py-1 rounded-md">
-                    {/* big screen */}
-                    <Star
-                      size={12}
-                      fill="currentColor"
-                      className='hidden xl:flex'
-                    />
+                  <div className="flex items-center text-yellow-400  gap-1 bg-teal-600  text-xs px-2 py-1 rounded-md">
+                    
+                    <Star size={13} fill="currentColor" />
                   
-                    {rating}
+                    <span className='text-white'>{rating}</span>
                   </div>
                 </div>
 
@@ -83,11 +79,13 @@ const TopSpecialistsCard = ({doctor}) => {
                 </span>
               </p>
 
-              <button
+              <Link
+              href={`/doctors/${_id}`}
                 className="
+                  btn
                   bg-teal-600
                   text-white
-                  text-sm
+                 
                   font-medium
                   px-4
                   py-2
@@ -98,7 +96,7 @@ const TopSpecialistsCard = ({doctor}) => {
                 "
               >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
             
