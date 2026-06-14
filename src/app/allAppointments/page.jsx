@@ -1,14 +1,13 @@
 import AppointmentsHeroSection from "@/Components/Shered/Appointments Hero Section/AppointmentsHeroSection";
-import { fetchDoctorsData } from "@/Fetch Api/fetchApi";
+import DoctorsSection from "@/Components/Shered/DoctorsSection/DoctorsSection";
 
-const AllAppointmentsPage = async() => {
-    let doctorsData = await fetchDoctorsData();
-    
-    return (
-        <>
-            <AppointmentsHeroSection></AppointmentsHeroSection>
-        </>
-    );
+const AllAppointmentsPage = async () => {
+  return (
+    <>
+      <AppointmentsHeroSection></AppointmentsHeroSection>
+      <DoctorsSection></DoctorsSection>
+    </>
+  );
 };
 
 export default AllAppointmentsPage;

@@ -6,7 +6,7 @@ import SearchDoctorAnimation from "../Animation/SearchDoctorAnimation";
 
 export default function AppointmentsHeroSection() {
   return (
-    <div className="w-full max-w-[85%] mx-auto  from-[#f8fbff] to-white mb-20">
+    <div className="w-full max-w-[85%] mx-auto  from-[#f8fbff] to-white ">
       
       {/* main appointment banner and image container */}
       <div className="">
