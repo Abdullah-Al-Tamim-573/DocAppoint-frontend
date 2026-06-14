@@ -11,7 +11,7 @@ const TopSpecialistsCard = ({doctor}) => {
 
             <div   
             className="
-              
+              group
               bg-white
               rounded-2xl
               border

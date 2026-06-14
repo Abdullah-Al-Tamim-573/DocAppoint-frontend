@@ -1,3 +1,4 @@
+import AppointmentsHeroSection from "@/Components/Shered/Appointments Hero Section/AppointmentsHeroSection";
 import { fetchDoctorsData } from "@/Fetch Api/fetchApi";
 
 const AllAppointmentsPage = async() => {
@@ -5,7 +6,7 @@ const AllAppointmentsPage = async() => {
     
     return (
         <>
-            i am All Appointments Page
+            <AppointmentsHeroSection></AppointmentsHeroSection>
         </>
     );
 };
