@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import { Modal, Button, Input, TextArea } from "@heroui/react";
 
@@ -6,7 +6,7 @@ import {
   CalendarDays
 } from "lucide-react";
 
-export default function BookAppointmentModalForm({name}) {
+ let BookAppointmentModalForm = async ({name}) => {
   return (
     <Modal>
       {/* book appointment */}
@@ -154,7 +154,7 @@ export default function BookAppointmentModalForm({name}) {
                   </label>
 
                   <TextArea
-                    minRows={4}
+                    row={4}
                     placeholder="Write brief reason for visit..."
                     className={'focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none w-full'}
                   />
@@ -176,3 +176,6 @@ export default function BookAppointmentModalForm({name}) {
     </Modal>
   );
 }
+
+
+export default BookAppointmentModalForm
