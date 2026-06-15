@@ -9,12 +9,15 @@ import {
   GraduationCap,
   Languages,
   CalendarDays,
+  
   MessageCircle,
   ArrowLeft,
 } from "lucide-react";
 
 import { fetchSingleDoctorData } from "@/Fetch Api/fetchApi";
 import Link from "next/link";
+import BookAppointmentModalForm from "@/Components/Shered/BookAppointmentModalForm/BookAppointmentModalForm";
+// import BookAppointmentModalForm from "@/Components/Shered/BookAppointmentModalForm/BookAppointmentModalForm";
 
 const DoctorDetailsPage = async ({ params }) => {
   let { id } = await params;
@@ -153,10 +156,9 @@ const DoctorDetailsPage = async ({ params }) => {
 
               {/* button */}
               <div className="mt-8 space-y-4">
-                <button className="w-full h-14 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold transition-all duration-300 flex items-center justify-center gap-2">
-                  <CalendarDays size={20} />
-                  Book Appointment
-                </button>
+                
+                <BookAppointmentModalForm name={name}></BookAppointmentModalForm>
+              
 
                 <button className="w-full h-14 rounded-2xl border border-teal-500 text-teal-500 hover:bg-teal-50 font-semibold transition-all duration-300 flex items-center justify-center gap-2">
                   <MessageCircle size={20} />
