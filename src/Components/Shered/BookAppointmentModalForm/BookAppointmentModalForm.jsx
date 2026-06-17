@@ -1,12 +1,22 @@
-"use server";
+"use client";
 
-import { Modal, Button, Input, TextArea } from "@heroui/react";
-
+import { handleBookAppointment } from "@/Services/Form Submit/FormSubmits";
 import {
-  CalendarDays
-} from "lucide-react";
+  
+  Modal,
+  Button,
+  TextField,
+  Input,
+  Label,
+  FieldError,
+  TextArea,
+  
+} from "@heroui/react";
 
- let BookAppointmentModalForm = async ({name}) => {
+import { CalendarDays } from "lucide-react";
+// import { SelectGender } from "../SelectGender/SelectGender";
+
+let BookAppointmentModalForm = ({ name }) => {
   return (
     <Modal>
       {/* book appointment */}
@@ -45,56 +55,77 @@ import {
 
             {/* modal body */}
             <Modal.Body className="px-7 pb-7">
-              <form className="space-y-5">
-                {/* USER EMAIL */}
-                <div>
-                  <label className="block mb-2 text-sm font-semibold text-slate-700">
+              <form onSubmit={handleBookAppointment} className="space-y-5">
+                {/* modal user email */}
+                <TextField
+                  isRequired
+                  name="userEmail"
+                  type="email"
+                  validate={(value) => {
+                    if (
+                      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+                    ) {
+                      return "Please enter a valid email address";
+                    }
+                    return null;
+                  }}
+                >
+                  <Label className="block mb-2 text-sm font-semibold text-slate-700">
                     User Email
-                  </label>
+                  </Label>
                   {/* user email input */}
                   <Input
                     placeholder="enter email"
-                    className={"text-slate-400 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"}
+                    className={
+                      "text-slate-400 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
+                    }
                   />
-                </div>
+                  <FieldError className="text-rose-500 text-xs mt-1" />
+                </TextField>
 
                 {/* modal doctor name (no change) */}
-                <div>
-                  <label className="block mb-2 text-sm font-semibold text-slate-700">
+                <TextField name="doctorName">
+                  <Label className="block mb-2 text-sm font-semibold text-slate-700">
                     Doctor Name
-                  </label>
+                  </Label>
                   {/* doctor name input */}
                   <Input
                     value={name}
                     readOnly
-                    className={"text-slate-400 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"}
+                    className={
+                      "text-slate-400 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
+                    }
                   />
-                </div>
+                </TextField>
 
                 {/* modal patient name */}
-                <div>
-                  <label className="block mb-2 text-sm font-semibold text-slate-700">
+                <TextField isRequired name="patientName">
+                  <Label className="block mb-2 text-sm font-semibold text-slate-700">
                     Patient Name
-                  </label>
+                  </Label>
                   {/* patient name input */}
-
                   <Input
                     placeholder="Enter patient name"
                     className={
                       "text-slate-400 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
                     }
                   />
-                </div>
+                  <FieldError className="text-rose-500 text-xs mt-1" />
+                </TextField>
 
                 {/* modal gender + phone */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* modal gender select option */}
-                  <div>
-                    <label className="block mb-2 text-sm font-semibold text-slate-700">
-                      Gender
-                    </label>
 
-                    <select className="w-full h-14 rounded-2xl border border-slate-200 px-4 text-slate-700 outline-none focus:border-teal-500 focus:bg-[#e6f4f7] bg-white">
+                  <div>
+                    <Label className="block mb-2 text-sm font-semibold text-slate-700">
+                      Gender <span className="text-red-500">*</span>
+                    </Label>
+                    <select
+                      required
+                      name="gender"
+                      className="w-full h-14 rounded-2xl border border-slate-200 px-4 text-slate-700 outline-none focus:border-teal-500 focus:bg-[#e6f4f7] bg-white"
+                    >
                       <option value="">Select Gender</option>
 
                       <option value="male">Male</option>
@@ -105,46 +136,99 @@ import {
                     </select>
                   </div>
 
-                  {/* modal user phone number */}
-                  <div>
-                    <label className="block mb-2 text-sm font-semibold text-slate-700">
-                      Phone Number
-                    </label>
+                  {/* <Select className="w-[256px]" placeholder="Select one">
+                      <Label>State</Label>
+                      <Select.Trigger>
+                        <Select.Value />
+                        <Select.Indicator className="size-3"></Select.Indicator>
+                      </Select.Trigger>
+                      <Select.Popover>
+                        <ListBox>
+                          <ListBox.Item id="florida" textValue="Florida">
+                            Florida
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                          <ListBox.Item id="delaware" textValue="Delaware">
+                            Delaware
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                          <ListBox.Item id="california" textValue="California">
+                            California
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                          <ListBox.Item id="texas" textValue="Texas">
+                            Texas
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                          <ListBox.Item id="new-york" textValue="New York">
+                            New York
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                          <ListBox.Item id="washington" textValue="Washington">
+                            Washington
+                            <ListBox.ItemIndicator />
+                          </ListBox.Item>
+                        </ListBox>
+                      </Select.Popover>
+                    </Select> */}
 
-                     {/* phone number input */}
-              
-                    <Input 
-                    placeholder="01XXXXXXXXX"
-                    className={'focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none'}
+                  {/* <SelectGender></SelectGender> */}
+
+                  {/* modal user phone number */}
+                  <TextField
+                    isRequired
+                    name="userPhoneNumber"
+                    type="tel"
+                    validate={(value) => {
+                      if (!/^01[3-9]\d{8}$/.test(value)) {
+                        return "Please enter a valid 11-digit phone number";
+                      }
+                      return null;
+                    }}
+                  >
+                    <Label className="block mb-2 text-sm font-semibold text-slate-700">
+                      Phone Number
+                    </Label>
+                    {/* phone number input */}
+                    <Input
+                      placeholder="01XXXXXXXXX"
+                      className={
+                        "focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
+                      }
                     />
-                  </div>
+                    <FieldError className="text-rose-500 text-xs mt-1" />
+                  </TextField>
                 </div>
 
                 {/* modal date + time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* modal date */}
-                  <div>
-                    <label className="block mb-2 text-sm font-semibold text-slate-700">
+                  <TextField isRequired name="appointmentDate" type="date">
+                    <Label className="block mb-2 text-sm font-semibold text-slate-700">
                       Appointment Date
-                    </label>
-                     {/* date input */}
+                    </Label>
+                    {/* date input */}
                     <Input
-                     type="date"
-                     className={'focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none'}
+                      className={
+                        "focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
+                      }
                     />
-                  </div>
+                    <FieldError className="text-rose-500 text-xs mt-1" />
+                  </TextField>
 
                   {/* modal time */}
-                  <div>
-                    <label className="block mb-2 text-sm font-semibold text-slate-700">
+                  <TextField isRequired name="appointmentTime" type="time">
+                    <Label className="block mb-2 text-sm font-semibold text-slate-700">
                       Appointment Time
-                    </label>
-                   {/* time input */}
+                    </Label>
+                    {/* time input */}
                     <Input
-                    type="time"
-                    className={'focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none'}
+                      className={
+                        "focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
+                      }
                     />
-                  </div>
+                    <FieldError className="text-rose-500 text-xs mt-1" />
+                  </TextField>
                 </div>
 
                 {/* modal message*/}
@@ -154,9 +238,12 @@ import {
                   </label>
 
                   <TextArea
+                    name="appointmentReason"
                     row={4}
                     placeholder="Write brief reason for visit..."
-                    className={'focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none w-full'}
+                    className={
+                      "focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none w-full"
+                    }
                   />
                 </div>
 
@@ -175,7 +262,6 @@ import {
       </Modal.Backdrop>
     </Modal>
   );
-}
+};
 
-
-export default BookAppointmentModalForm
+export default BookAppointmentModalForm;
