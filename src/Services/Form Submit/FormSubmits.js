@@ -1,27 +1,5 @@
-// // book appointment form submit 
-// export let handleBookAppointment = async (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.target);
+import toast from "react-hot-toast";
 
-//     const bookAppointmentFormData = Object.fromEntries(formData.entries());
-//     console.log(bookAppointmentFormData)
-//     // try {
-
-//     //     let res = await fetch(`${process.env.NEXT_SERVER_URL}/doctorAppointments`, {
-//     //         method: "POST",
-//     //         headers: {
-//     //             "Content-Type": "application/json",
-//     //         },
-//     //         body: JSON.stringify(bookAppointmentFormData),
-//     //     });
-//     //     let data = await res.json();
-//     //     console.log(data)
-//     // }
-//     // catch(error) {
-//     //     console.log(error)
-//     // }
-
-// }
 
 export let handleBookAppointment = async (e) => {
     e.preventDefault();
@@ -29,8 +7,8 @@ export let handleBookAppointment = async (e) => {
     const bookAppointmentFormData = Object.fromEntries(formData.entries());
 
     try {
-        
-        
+
+
         let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctorAppointments`, {
             method: "POST",
             headers: {
@@ -38,10 +16,14 @@ export let handleBookAppointment = async (e) => {
             },
             body: JSON.stringify(bookAppointmentFormData),
         });
-        
-        let data = await res.json();
-        console.log("Success:", data);
+     let data = await res.json();
+        if (data.acknowledged) {
+            toast.success("Appointment Booked Successfully!");
+            e.target.reset();
+            
+        }
     } catch (error) {
-        console.log("Error:", error);
+        toast.error("Something went wrong. Please try again!");
+        console.log(error)
     }
 }

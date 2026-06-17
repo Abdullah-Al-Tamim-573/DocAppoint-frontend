@@ -1,6 +1,7 @@
 "use client";
 
 import { handleBookAppointment } from "@/Services/Form Submit/FormSubmits";
+
 import {
   
   Modal,
@@ -14,9 +15,12 @@ import {
 } from "@heroui/react";
 
 import { CalendarDays } from "lucide-react";
-// import { SelectGender } from "../SelectGender/SelectGender";
+
+
+
 
 let BookAppointmentModalForm = ({ name }) => {
+  
   return (
     <Modal>
       {/* book appointment */}
@@ -55,7 +59,7 @@ let BookAppointmentModalForm = ({ name }) => {
 
             {/* modal body */}
             <Modal.Body className="px-7 pb-7">
-              <form onSubmit={handleBookAppointment} className="space-y-5">
+              <form onSubmit={() =>handleBookAppointment()} className="space-y-5">
                 {/* modal user email */}
                 <TextField
                   isRequired
@@ -136,43 +140,7 @@ let BookAppointmentModalForm = ({ name }) => {
                     </select>
                   </div>
 
-                  {/* <Select className="w-[256px]" placeholder="Select one">
-                      <Label>State</Label>
-                      <Select.Trigger>
-                        <Select.Value />
-                        <Select.Indicator className="size-3"></Select.Indicator>
-                      </Select.Trigger>
-                      <Select.Popover>
-                        <ListBox>
-                          <ListBox.Item id="florida" textValue="Florida">
-                            Florida
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                          <ListBox.Item id="delaware" textValue="Delaware">
-                            Delaware
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                          <ListBox.Item id="california" textValue="California">
-                            California
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                          <ListBox.Item id="texas" textValue="Texas">
-                            Texas
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                          <ListBox.Item id="new-york" textValue="New York">
-                            New York
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                          <ListBox.Item id="washington" textValue="Washington">
-                            Washington
-                            <ListBox.ItemIndicator />
-                          </ListBox.Item>
-                        </ListBox>
-                      </Select.Popover>
-                    </Select> */}
-
-                  {/* <SelectGender></SelectGender> */}
+                  
 
                   {/* modal user phone number */}
                   <TextField
