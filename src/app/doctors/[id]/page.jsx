@@ -157,7 +157,7 @@ const DoctorDetailsPage = async ({ params }) => {
               {/* button */}
               <div className="mt-8 space-y-4">
                 
-                <BookAppointmentModalForm name={name}></BookAppointmentModalForm>
+                <BookAppointmentModalForm name={name} image={image} specialty={specialty} rating={rating}></BookAppointmentModalForm>
               
 
                 <button className="w-full h-14 rounded-2xl border border-teal-500 text-teal-500 hover:bg-teal-50 font-semibold transition-all duration-300 flex items-center justify-center gap-2">

@@ -1,11 +1,18 @@
 import toast from "react-hot-toast";
 
 
-export let handleBookAppointment = async (e) => {
+export let handleBookAppointment = async (e, image, specialty, rating) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const bookAppointmentFormData = Object.fromEntries(formData.entries());
-
+    const bookAppointmentFormDataObj = Object.fromEntries(formData.entries());
+    const finalData = {
+        image,
+        specialty,
+        rating,
+        ...bookAppointmentFormDataObj
+    }
+    
+    
     try {
 
 
@@ -14,7 +21,7 @@ export let handleBookAppointment = async (e) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(bookAppointmentFormData),
+            body: JSON.stringify(finalData),
         });
      let data = await res.json();
         if (data.acknowledged) {

@@ -19,7 +19,7 @@ import { CalendarDays } from "lucide-react";
 
 
 
-let BookAppointmentModalForm = ({ name }) => {
+let BookAppointmentModalForm = ({ name, image, specialty, rating }) => {
   
   return (
     <Modal>
@@ -59,7 +59,7 @@ let BookAppointmentModalForm = ({ name }) => {
 
             {/* modal body */}
             <Modal.Body className="px-7 pb-7">
-              <form onSubmit={() =>handleBookAppointment()} className="space-y-5">
+              <form onSubmit={(e) =>handleBookAppointment(e, image, specialty, rating)} className="space-y-5">
                 {/* modal user email */}
                 <TextField
                   isRequired
