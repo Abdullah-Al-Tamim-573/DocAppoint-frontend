@@ -5,7 +5,7 @@ import BookingCard from "../Booking Card/BookingCard";
 
 const DashboardBookings = async () => {
   let appointmentDoctorsData = await fetchAppointmentDoctorsData();
-  console.log(appointmentDoctorsData, 'booking data right now')
+  
   return (
     <>
       <div className="max-w-[85%] mx-auto my-10 mb-30  md:mb-40 xl:mb-35">

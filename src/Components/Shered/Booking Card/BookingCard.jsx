@@ -4,15 +4,19 @@ import {
   Clock3,
   User,
   FileText,
-  Pencil,
+  
   
   Star,
 } from "lucide-react";
 import DeleteBtn from "../Buttons/CRUD Btns/DeleteBtn";
+import BookingUpgradeForm from "../BookingUpgradeForm/BookingUpgradeForm";
+
 
 const BookingCard = ({bookingData}) => {
-    console.log(bookingData)
-    let {_id, image, appointmentDate, appointmentReason, appointmentTime, doctorName, gender, patientName, rating, specialty, userEmail, userPhoneNumber} = bookingData;
+
+  
+    
+    let {_id, image, appointmentDate, appointmentReason, appointmentTime, doctorName, gender, patientName, rating, specialty, userPhoneNumber} = bookingData;
 
 
   return (
@@ -97,12 +101,10 @@ const BookingCard = ({bookingData}) => {
               confirmed 
             </span>
 
-            <button className="h-10 rounded-xl border border-teal-500 text-teal-600 font-medium flex items-center justify-center gap-2 hover:bg-teal-50">
-              <Pencil size={15} />
-              Update
-            </button>
-
-           <DeleteBtn id={_id}></DeleteBtn>
+            {/* upgrade btn */}
+             <BookingUpgradeForm appointmentTime={appointmentTime} appointmentDate={appointmentDate} userPhoneNumber={userPhoneNumber} gender={gender} patientName={patientName} doctorName={doctorName} id={_id}></BookingUpgradeForm>
+              {/* delete btn */}
+              <DeleteBtn  id={_id}></DeleteBtn>
           </div>
         </div>
 
@@ -142,12 +144,10 @@ const BookingCard = ({bookingData}) => {
                 confirmed 
               </span>
 
-              <button className="h-10 btn rounded-xl border border-teal-500 text-teal-600 font-medium flex items-center justify-center gap-2 hover:bg-teal-50">
-                <Pencil size={15} />
-                Update
-              </button>
-
-              <DeleteBtn id={_id}></DeleteBtn>
+             {/* upgrade btn */}
+             <BookingUpgradeForm appointmentTime={appointmentTime} appointmentDate={appointmentDate} userPhoneNumber={userPhoneNumber} gender={gender} patientName={patientName} doctorName={doctorName} id={_id}></BookingUpgradeForm>
+              {/* delete btn */}
+              <DeleteBtn  id={_id}></DeleteBtn>
             </div>
           </div>
 
