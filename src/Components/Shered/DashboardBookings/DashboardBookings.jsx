@@ -5,7 +5,7 @@ import BookingCard from "../Booking Card/BookingCard";
 
 const DashboardBookings = async () => {
   let appointmentDoctorsData = await fetchAppointmentDoctorsData();
-  console.log(appointmentDoctorsData)
+  console.log(appointmentDoctorsData, 'booking data right now')
   return (
     <>
       <div className="max-w-[85%] mx-auto my-10 mb-30  md:mb-40 xl:mb-35">
@@ -23,9 +23,11 @@ const DashboardBookings = async () => {
           </button>
         </div>
 
-        <div className="space-y-5">
+        {
+          appointmentDoctorsData.length === 0? <div className="text-[red] text-center font-bold my-10 md:my-20 text-2xl">No appointment Available Here </div>: <><div className="space-y-5">
           {appointmentDoctorsData.map(booking => <BookingCard key={booking._id} bookingData={booking}></BookingCard>)}
-        </div>
+        </div></>
+        }
       </div>
     </>
   );

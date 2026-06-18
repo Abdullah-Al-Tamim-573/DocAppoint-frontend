@@ -5,9 +5,10 @@ import {
   User,
   FileText,
   Pencil,
-  Trash2,
+  
   Star,
 } from "lucide-react";
+import DeleteBtn from "../Buttons/CRUD Btns/DeleteBtn";
 
 const BookingCard = ({bookingData}) => {
     console.log(bookingData)
@@ -27,8 +28,8 @@ const BookingCard = ({bookingData}) => {
             {/* doctor image */}
             <div className="relative w-24 h-24 rounded-2xl overflow-hidden">
               <Image
-                src={image}
-                alt={doctorName}
+                src={image || null}
+                alt={doctorName || 'doctor'}
                 fill
                 className="object-cover"
               />
@@ -101,10 +102,7 @@ const BookingCard = ({bookingData}) => {
               Update
             </button>
 
-            <button className="h-10 rounded-xl border border-red-500 text-red-500 font-medium flex items-center justify-center gap-2 hover:bg-red-50">
-              <Trash2 size={15} />
-              Delete
-            </button>
+           <DeleteBtn id={_id}></DeleteBtn>
           </div>
         </div>
 
@@ -115,9 +113,9 @@ const BookingCard = ({bookingData}) => {
             <div className="flex items-center gap-4 min-w-[280px]">
                 {/* doctor image */}
               <div className="relative w-24 h-24 rounded-2xl overflow-hidden">
-                <Image
-                src={image}
-                alt={doctorName}
+               <Image
+                src={image || null}
+                alt={doctorName || 'doctor'}
                 fill
                 className="object-cover"
               />
@@ -149,10 +147,7 @@ const BookingCard = ({bookingData}) => {
                 Update
               </button>
 
-              <button className="h-10 btn rounded-xl border border-red-500 text-red-500 font-medium flex items-center justify-center gap-2 hover:bg-red-50">
-                <Trash2 size={15} />
-                Delete
-              </button>
+              <DeleteBtn id={_id}></DeleteBtn>
             </div>
           </div>
 
