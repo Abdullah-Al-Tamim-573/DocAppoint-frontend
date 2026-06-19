@@ -75,7 +75,7 @@ export default function Navbar() {
 
           {/* register button */}
           <Link href="/register" className="hidden md:block">
-            <button className="h-10 px-5 rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 text-sm font-semibold shadow-md">
+            <button className="h-10 cursor-pointer px-5 rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 text-sm font-semibold shadow-md">
               Register
             </button>
           </Link>
