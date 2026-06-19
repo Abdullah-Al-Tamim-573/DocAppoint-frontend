@@ -1,6 +1,7 @@
 
 import { fetchAppointmentDoctorsData } from "@/Fetch Api/fetchApi";
 import BookingCard from "../Booking Card/BookingCard";
+import Link from "next/link";
 
 
 const DashboardBookings = async () => {
@@ -18,9 +19,9 @@ const DashboardBookings = async () => {
             </p>
           </div>
 
-          <button className="hidden md:flex h-11 px-5 rounded-xl bg-teal-500 text-white items-center justify-center font-medium hover:bg-teal-600 duration-300">
+          <Link href={'/allAppointments'} className="hidden md:flex h-11 px-5 rounded-xl bg-teal-500 text-white items-center justify-center font-medium hover:bg-teal-600 duration-300">
             + Book New Appointment
-          </button>
+          </Link>
         </div>
 
         {
