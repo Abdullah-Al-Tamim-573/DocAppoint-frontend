@@ -27,7 +27,7 @@ export let fetchSingleDoctorData = async (id) => {
 
 export let fetchAppointmentDoctorsData = async () => {
     try {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctorAppointments`);
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctorAppointments`, { cache: 'no-store' });
         let data = await res.json();
         return data
     }
