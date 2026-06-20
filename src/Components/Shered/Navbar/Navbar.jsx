@@ -5,16 +5,14 @@ import Link from "next/link";
 import { Menu, Moon, X } from "lucide-react";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { handleSignOut } from "@/Services/Form Submit/Authentication/SignOut";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { data: session } = authClient.useSession();
-  let router = useRouter()
- 
-
+  let router = useRouter();
 
   return (
     <nav className="sticky border top-0 z-50 w-full border-b border-gray-200 bg-white/80 ">
@@ -22,17 +20,14 @@ export default function Navbar() {
         {/* LEFT SIDE */}
         <div className=" w-[180px] sm:w-[200px] md:w-[150px] lg:w-[180px]">
           {/* LOGO */}
-          
-            <Image
-              src="/Images/logo.png"
-              alt="DocAppoint Logo"
-              width={200}
-              height={60}
-              
-              className="w-full h-auto object-contain "
-            />
-            
-         
+
+          <Image
+            src="/Images/logo.png"
+            alt="DocAppoint Logo"
+            width={200}
+            height={60}
+            className="w-full h-auto object-contain "
+          />
         </div>
 
         {/* Middle Side */}
@@ -73,26 +68,42 @@ export default function Navbar() {
           <button className="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
             <Moon size={18} className="text-slate-700" />
           </button>
-         {/* conditionally show register, login and logout btn */}
-         {
-            session?.user ? <Button onClick={() => handleSignOut(router)} variant="danger">Log Out</Button>:
-            
+          {/* conditionally show register, login and logout btn */}
+          {session?.user ? (
             <>
-               {/* login button */}
-          <Link href="/login" className="hidden md:block">
-            <button className="h-10 cursor-pointer px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
-              Log In
-            </button>
-          </Link>
+              <Avatar>
+                <Avatar.Image
+                  alt={session?.user?.name}
+                  src={'session?.user?.image'}
+                />
+                <Avatar.Fallback>{session?.user?.name.slice(0,2)}</Avatar.Fallback>
+              </Avatar>
 
-          {/* register button */}
-          <Link href="/register" className="hidden md:block">
-            <button className="h-10 cursor-pointer px-5 rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 text-sm font-semibold shadow-md">
-              Register
-            </button>
-          </Link>
+              <Button
+                className={"hidden md:flex"}
+                onClick={() => handleSignOut(router)}
+                variant="danger"
+              >
+                Log Out
+              </Button>
             </>
-         }
+          ) : (
+            <>
+              {/* login button */}
+              <Link href="/login" className="hidden md:block">
+                <button className="h-10 cursor-pointer px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
+                  Log In
+                </button>
+              </Link>
+
+              {/* register button */}
+              <Link href="/register" className="hidden md:block">
+                <button className="h-10 cursor-pointer px-5 rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 text-sm font-semibold shadow-md">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
 
           {/* mobile menu button */}
           <button
@@ -140,25 +151,29 @@ export default function Navbar() {
 
             {/* mobile buttons */}
             <div className="flex flex-col gap-3 pt-2">
-              
-
-              {
-                session?.user ? <Button className={'w-full h-10 rounded-xl '} onClick={() => handleSignOut(router)} variant="danger">Log Out</Button>
-                : 
+              {session?.user ? (
+                <Button
+                  className={"w-full h-10 rounded-xl "}
+                  onClick={() => handleSignOut(router)}
+                  variant="danger"
+                >
+                  Log Out
+                </Button>
+              ) : (
                 <>
-                   <Link href="/login">
-                <button className="w-full h-10 rounded-xl border border-teal-500 text-teal-500 font-semibold">
-                  Log In
-                </button>
-              </Link>
+                  <Link href="/login">
+                    <button className="w-full h-10 rounded-xl border border-teal-500 text-teal-500 font-semibold">
+                      Log In
+                    </button>
+                  </Link>
 
-              <Link href="/register">
-                <button className="w-full h-10 rounded-xl bg-teal-500 text-white font-semibold">
-                  Register
-                </button>
-              </Link>
+                  <Link href="/register">
+                    <button className="w-full h-10 rounded-xl bg-teal-500 text-white font-semibold">
+                      Register
+                    </button>
+                  </Link>
                 </>
-              }
+              )}
             </div>
           </ul>
         </div>
