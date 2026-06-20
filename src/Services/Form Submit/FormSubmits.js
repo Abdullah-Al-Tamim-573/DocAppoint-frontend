@@ -1,6 +1,4 @@
 import toast from "react-hot-toast";
-
-
 export let handleBookAppointment = async (e, image, specialty, rating) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -11,10 +9,9 @@ export let handleBookAppointment = async (e, image, specialty, rating) => {
         rating,
         ...bookAppointmentFormDataObj
     }
-    
-    
-    try {
 
+
+    try {
 
         let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctorAppointments`, {
             method: "POST",
@@ -23,11 +20,11 @@ export let handleBookAppointment = async (e, image, specialty, rating) => {
             },
             body: JSON.stringify(finalData),
         });
-     let data = await res.json();
+        let data = await res.json();
         if (data.acknowledged) {
             toast.success("Appointment Booked Successfully!");
             e.target.reset();
-            
+
         }
     } catch (error) {
         toast.error("Something went wrong. Please try again!");

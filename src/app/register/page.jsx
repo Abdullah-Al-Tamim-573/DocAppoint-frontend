@@ -12,23 +12,12 @@ import {
 } from "@heroui/react";
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
+import { handleSignUp } from "@/Services/Form Submit/Authentication/SignUpFormSubmit";
 
 export default function RegisterPage() {
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-    const data = {};
-
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    console.log(data);
-  };
 
   return (
-    <div className="py-15 pb-30 md:pb-45 xl:pb-35   xl:py-15 flex items-center justify-center bg-slate-50 px-4">
+    <div className="pt-5 pb-40 md:pb-45 xl:pb-35   xl:py-15 flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg border border-slate-100 p-8">
         {/* register form logo */}
         <div className="flex flex-col text-center mb-5">
@@ -52,7 +41,7 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <Form className="flex flex-col gap-5" onSubmit={onSubmit}>
+        <Form onSubmit={handleSignUp} className="flex flex-col gap-5">
           {/* name */}
           <TextField isRequired name="name">
             <Label>Name</Label>
