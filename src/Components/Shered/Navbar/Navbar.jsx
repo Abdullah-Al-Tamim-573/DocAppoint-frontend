@@ -80,7 +80,7 @@ export default function Navbar() {
             <>
                {/* login button */}
           <Link href="/login" className="hidden md:block">
-            <button className="h-10 px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
+            <button className="h-10 cursor-pointer px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
               Log In
             </button>
           </Link>
@@ -140,7 +140,13 @@ export default function Navbar() {
 
             {/* mobile buttons */}
             <div className="flex flex-col gap-3 pt-2">
-              <Link href="/login">
+              
+
+              {
+                session?.user ? <Button className={'w-full h-10 rounded-xl '} onClick={() => handleSignOut(router)} variant="danger">Log Out</Button>
+                : 
+                <>
+                   <Link href="/login">
                 <button className="w-full h-10 rounded-xl border border-teal-500 text-teal-500 font-semibold">
                   Log In
                 </button>
@@ -151,6 +157,8 @@ export default function Navbar() {
                   Register
                 </button>
               </Link>
+                </>
+              }
             </div>
           </ul>
         </div>

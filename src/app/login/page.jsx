@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   Button,
-  Description,
   FieldError,
   Form,
   Input,
@@ -12,51 +11,43 @@ import {
 } from "@heroui/react";
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
-import { handleSignUp } from "@/Services/Form Submit/Authentication/SignUpFormSubmit";
+
 import { useRouter } from "next/navigation";
+import { handleLogIn } from "@/Services/Form Submit/Authentication/LogIn";
 
-let RegisterPage = () => {
-
-  const router = useRouter()
+let LoginPage = () => {
+  const router = useRouter();
 
   return (
     <div className="pt-5 pb-40 md:pb-45 xl:pb-35   xl:py-15 flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg border border-slate-100 p-8">
-        {/* register form logo */}
+        {/* login form logo */}
         <div className="flex flex-col text-center mb-5">
           <div className=" flex mb-1 md:mb-2 justify-center font-bold text-teal-600">
             <Image
-              className=""
+              
               src={"/Images/logo.png"}
               alt="logo"
               height={200}
               width={200}
             ></Image>
           </div>
-          {/* register form title */}
+          {/* logIn form title */}
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-slate-800">
-              Register
+              LogIn
             </h1>
             <p className="text-slate-500 mt-2 text-sm">
-              Create your Doc appointment account
+              Please logIn your account
             </p>
           </div>
         </div>
 
-        <Form onSubmit={(e) => handleSignUp(e, router)} className="flex flex-col gap-5">
-          {/* name */}
-          <TextField isRequired name="name">
-            <Label>Name</Label>
-            <Input
-              className={
-                "  w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
-              }
-              placeholder="Enter your full name"
-            />
-
-            <FieldError />
-          </TextField>
+        <Form
+          onSubmit={(e) => handleLogIn(e, router)}
+          className="flex flex-col gap-5"
+        >
+         
 
           {/* email */}
           <TextField
@@ -80,17 +71,6 @@ let RegisterPage = () => {
             <FieldError />
           </TextField>
 
-          {/* user photo URL */}
-          <TextField isRequired name="photoURL" type="url">
-            <Label>Photo URL</Label>
-            <Input
-              className={
-                "w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
-              }
-              placeholder="https://example.com/photo.jpg"
-            />
-            <FieldError />
-          </TextField>
 
           {/* password */}
           <TextField
@@ -121,19 +101,17 @@ let RegisterPage = () => {
               placeholder="Enter your password"
             />
 
-            <Description>
-              Minimum 6 characters, 1 uppercase and 1 lowercase letter
-            </Description>
+            
 
             <FieldError />
           </TextField>
 
-          {/* register button */}
+          {/* logIn button */}
           <Button
             type="submit"
             className="w-full h-12 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-xl"
           >
-            Register
+            LogIn
           </Button>
         </Form>
 
@@ -144,7 +122,7 @@ let RegisterPage = () => {
           <div className="flex-1 h-px bg-slate-200"></div>
         </div>
 
-        {/* google sign up */}
+        {/* google sign in */}
         <button
           variant="bordered"
           className="w-full h-12 rounded-xl font-medium btn"
@@ -155,17 +133,18 @@ let RegisterPage = () => {
 
         {/* login page link */}
         <p className="text-center text-sm text-slate-600 mt-6">
-          Already have an account?{" "}
+          Don't have an account? {" "}
           <Link
-            href="/login"
+            href="/register"
             className="text-teal-600 font-semibold hover:underline"
           >
-            Login
+            Register
           </Link>
         </p>
       </div>
     </div>
   );
-}
+};
 
-export default RegisterPage
+
+export default LoginPage

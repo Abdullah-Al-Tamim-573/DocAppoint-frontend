@@ -12,7 +12,7 @@ export let handleSignUp = async(e, router) => {
         password : signUpFormData.password,
         name: signUpFormData.name,
         image: signUpFormData.photoURL,
-        callbackURL: "/dashboard"
+        
     })
 
     console.log('sign up')

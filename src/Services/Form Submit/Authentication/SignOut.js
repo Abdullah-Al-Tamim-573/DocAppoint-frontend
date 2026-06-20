@@ -7,7 +7,7 @@ export let handleSignOut = async (router) => {
     let result = await authClient.signOut();
     
     if(result?.data?.success) {
-        router.push('/register');
+        router.push('/login');
         toast.success('Successfully SignOut')
     }
     else {
