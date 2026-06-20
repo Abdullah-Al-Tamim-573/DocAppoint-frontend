@@ -14,6 +14,7 @@ import Image from "next/image";
 
 import { useRouter } from "next/navigation";
 import { handleLogIn } from "@/Services/Form Submit/Authentication/LogIn";
+import { googleSignIn } from "@/Services/Form Submit/Authentication/GoogleSignIn";
 
 let LoginPage = () => {
   const router = useRouter();
@@ -124,6 +125,7 @@ let LoginPage = () => {
 
         {/* google sign in */}
         <button
+        onClick={() =>googleSignIn(router)}
           variant="bordered"
           className="w-full h-12 rounded-xl font-medium btn"
         >

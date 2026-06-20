@@ -14,6 +14,7 @@ import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
 import { handleSignUp } from "@/Services/Form Submit/Authentication/SignUpFormSubmit";
 import { useRouter } from "next/navigation";
+import { googleSignIn } from "@/Services/Form Submit/Authentication/GoogleSignIn";
 
 let RegisterPage = () => {
 
@@ -146,7 +147,8 @@ let RegisterPage = () => {
 
         {/* google sign up */}
         <button
-          variant="bordered"
+
+          onClick={googleSignIn}
           className="w-full h-12 rounded-xl font-medium btn"
         >
           <FcGoogle size={22} />
