@@ -4,9 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, Moon, X } from "lucide-react";
 import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@heroui/react";
+import { handleSignOut } from "@/Services/Form Submit/Authentication/SignOut";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { data: session } = authClient.useSession();
+  let router = useRouter()
+ 
+
 
   return (
     <nav className="sticky border top-0 z-50 w-full border-b border-gray-200 bg-white/80 ">
@@ -65,8 +73,12 @@ export default function Navbar() {
           <button className="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition">
             <Moon size={18} className="text-slate-700" />
           </button>
-
-          {/* login button */}
+         {/* conditionally show register, login and logout btn */}
+         {
+            session?.user ? <Button onClick={() => handleSignOut(router)} variant="danger">Log Out</Button>:
+            
+            <>
+               {/* login button */}
           <Link href="/login" className="hidden md:block">
             <button className="h-10 px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
               Log In
@@ -79,6 +91,8 @@ export default function Navbar() {
               Register
             </button>
           </Link>
+            </>
+         }
 
           {/* mobile menu button */}
           <button
