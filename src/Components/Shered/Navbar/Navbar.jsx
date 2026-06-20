@@ -74,7 +74,7 @@ export default function Navbar() {
               <Avatar>
                 <Avatar.Image
                   alt={session?.user?.name}
-                  src={'session?.user?.image'}
+                  src={session?.user?.image}
                 />
                 <Avatar.Fallback>{session?.user?.name.slice(0,2)}</Avatar.Fallback>
               </Avatar>
