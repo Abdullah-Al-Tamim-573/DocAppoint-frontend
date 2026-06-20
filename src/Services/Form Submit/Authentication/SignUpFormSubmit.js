@@ -1,6 +1,7 @@
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
-export let handleSignUp = async(e) => {
+export let handleSignUp = async(e, router) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const signUpFormData = Object.fromEntries(formData.entries());
@@ -16,7 +17,15 @@ export let handleSignUp = async(e) => {
 
     console.log('sign up')
 
-    console.log(data?.user, "sign up data");
-    console.log(error, "sing up error")
+
+    if(data?.user) {
+        router.push('/')
+        toast.success(`${data?.user?.name} SuccessFully Sign Up`);
+    }
+    if(error) {
+        toast.error(error?.message)
+    }
+
+    
 
 }

@@ -13,8 +13,11 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
 import { handleSignUp } from "@/Services/Form Submit/Authentication/SignUpFormSubmit";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
+
+  const router = useRouter()
 
   return (
     <div className="pt-5 pb-40 md:pb-45 xl:pb-35   xl:py-15 flex items-center justify-center bg-slate-50 px-4">
@@ -41,7 +44,7 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <Form onSubmit={handleSignUp} className="flex flex-col gap-5">
+        <Form onSubmit={(e) => handleSignUp(e, router)} className="flex flex-col gap-5">
           {/* name */}
           <TextField isRequired name="name">
             <Label>Name</Label>
