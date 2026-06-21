@@ -54,7 +54,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/dashboard"
+                href="/dashboard/myBookings"
                 className="hover:text-teal-500 transition-all duration-300"
               >
                 Dashboard
@@ -131,7 +131,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/appointments"
+                href="/allAppointments"
                 className="hover:text-teal-500 transition"
                 onClick={() => setOpen(false)}
               >
@@ -141,7 +141,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/dashboard"
+                href="/dashboard/myBookings"
                 className="hover:text-teal-500 transition"
                 onClick={() => setOpen(false)}
               >

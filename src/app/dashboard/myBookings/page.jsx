@@ -1,18 +1,15 @@
+import BookingCard from '@/Components/Shered/Booking Card/BookingCard';
+import { fetchAppointmentDoctorsData } from '@/Fetch Api/fetchApi';
+import Link from 'next/link';
 
-import { fetchAppointmentDoctorsData } from "@/Fetch Api/fetchApi";
-import BookingCard from "../Booking Card/BookingCard";
-import Link from "next/link";
 
-
-const DashboardBookings = async () => {
-  let appointmentDoctorsData = await fetchAppointmentDoctorsData();
-  
-  return (
-    <>
-      <div className="max-w-[85%] mx-auto my-10 mb-30  md:mb-40 xl:mb-35">
+const MyBookingsPage = async () => {
+    let appointmentDoctorsData = await fetchAppointmentDoctorsData();
+    return (
+         <div className=" my-10 mb-30  md:mb-40 xl:mb-35">
         <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-slate-900">My Bookings</h2>
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl font-bold text-slate-900 ">My Bookings</h2>
 
             <p className="text-slate-500 mt-1">
               View and manage your booked appointments.
@@ -30,8 +27,7 @@ const DashboardBookings = async () => {
         </div></>
         }
       </div>
-    </>
-  );
+    );
 };
 
-export default DashboardBookings;
+export default MyBookingsPage;

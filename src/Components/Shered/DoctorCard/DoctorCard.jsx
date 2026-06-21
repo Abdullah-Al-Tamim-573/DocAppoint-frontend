@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const DoctorCard = ({ doctorData }) => {
-  console.log(doctorData);
+  
   let {
     _id,
     name,
