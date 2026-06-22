@@ -36,6 +36,7 @@ const MyProfilePage = () => {
             <div className="relative w-fit">
               <Avatar className="w-28 rounded-full h-28 text-5xl font-bold">
                 <Avatar.Image
+                className="object-cover"
                   alt={session?.user?.name}
                   src={session?.user?.image}
                 />
@@ -80,10 +81,7 @@ const MyProfilePage = () => {
           </div>
 
           {/* edit button */}
-          {/* <button   className="h-12 px-6 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-100 cursor-pointer  flex items-center justify-center gap-2 font-medium">
-            <Pencil size={16} />
-            Edit Profile
-          </button> */}
+          
 
           <EditProfileModal name={session?.user?.name} image={session?.user?.image} email={session?.user?.email}></EditProfileModal>
         </div>

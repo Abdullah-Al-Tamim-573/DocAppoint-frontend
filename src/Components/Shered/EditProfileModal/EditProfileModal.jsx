@@ -1,3 +1,4 @@
+import { handleProfileEditForm } from "@/Services/Form Submit/ProfileEditForm";
 import {
   Modal,
   Button,
@@ -9,11 +10,15 @@ import {
 
 import { CalendarDays, Pencil } from "lucide-react";
 
-const EditProfileModal = ({name, image, email}) => {
+
+
+const EditProfileModal = ({name, image}) => {
+  
+  
   return (
     <>
       <Modal>
-        {/* book appointment upgrade btn */}
+        {/* edit profile btn */}
           <Button  className="h-12 px-6 rounded-xl border bg-teal-50 border-teal-500 text-teal-500 hover:bg-teal-100 cursor-pointer  flex items-center justify-center gap-2 font-medium">
             <Pencil size={16} />
             Edit Profile
@@ -40,16 +45,15 @@ const EditProfileModal = ({name, image, email}) => {
                       Edit Profile
                     </Modal.Heading>
 
-                    {/* <p className="text-sm text-slate-500 mt-1">
-                      Upgrade your appointment booking
-                    </p> */}
+                   
                   </div>
                 </div>
               </Modal.Header>
 
               {/* modal body */}
               <Modal.Body className="px-7 pb-7">
-                <form onSubmit={(e) => handleUpgradeForm(e, id, router)}>
+                {/* edit form */}
+                <form onSubmit={(e) => handleProfileEditForm(e)}>
                   
 
                   {/* modal patient name */}
@@ -58,6 +62,7 @@ const EditProfileModal = ({name, image, email}) => {
                     type="text"
                     isRequired
                     name="name"
+                    className={'mb-3'}
                   >
                     <Label className="block mb-2 text-sm font-semibold text-slate-700">
                       Patient Name
@@ -71,24 +76,7 @@ const EditProfileModal = ({name, image, email}) => {
                     <FieldError className="text-rose-500 text-xs mt-1" />
                   </TextField>
                   {/* modal patient email */}
-                  <TextField
-                    defaultValue={email}
-                    type="email"
-                    isRequired
-                    name="email"
-                    className={'my-3'}
-                  >
-                    <Label className="block  mb-2 text-sm font-semibold text-slate-700">
-                      Patient Email
-                    </Label>
-                    {/* patient email input */}
-                    <Input
-                      className={
-                        "text-slate-500 w-full focus:bg-[#e6f4f7] border border-slate-200 focus:border-teal-500 outline-none"
-                      }
-                    />
-                    <FieldError className="text-rose-500 text-xs mt-1" />
-                  </TextField>
+               
                   {/* modal patient image url */}
                   <TextField
                     defaultValue={image}
@@ -113,13 +101,15 @@ const EditProfileModal = ({name, image, email}) => {
                 
 
                   {/* modal submit btn */}
-                  <button
+                  <Button
+                 
+                     
                     type="submit"
-                    className="w-full h-14 mt-4 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full cursor-pointer h-14 mt-4 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
                   >
                     <CalendarDays size={20} />
                     Save Changes
-                  </button>
+                  </Button>
                 </form>
               </Modal.Body>
             </Modal.Dialog>
