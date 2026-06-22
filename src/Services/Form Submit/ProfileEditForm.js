@@ -2,7 +2,7 @@ import { authClient } from "@/lib/auth-client";
 
 import toast from "react-hot-toast";
 
-export let handleProfileEditForm = async (e ) => {
+export let handleProfileEditForm = async (e, router) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const editProfileFormData = Object.fromEntries(formData.entries());
@@ -18,7 +18,7 @@ export let handleProfileEditForm = async (e ) => {
 
     if(result?.data?.status) {
         toast.success("Profile Upgrade Successfully");
-        
+        router.refresh()
     }
 
     if(!result?.data?.status) {

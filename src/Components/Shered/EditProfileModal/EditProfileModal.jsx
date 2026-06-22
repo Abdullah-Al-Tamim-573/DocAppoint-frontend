@@ -1,3 +1,5 @@
+'use client'
+
 import { handleProfileEditForm } from "@/Services/Form Submit/ProfileEditForm";
 import {
   Modal,
@@ -9,10 +11,13 @@ import {
 } from "@heroui/react";
 
 import { CalendarDays, Pencil } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
 
 const EditProfileModal = ({name, image}) => {
+
+  let router = useRouter()
   
   
   return (
@@ -53,7 +58,7 @@ const EditProfileModal = ({name, image}) => {
               {/* modal body */}
               <Modal.Body className="px-7 pb-7">
                 {/* edit form */}
-                <form onSubmit={(e) => handleProfileEditForm(e)}>
+                <form onSubmit={(e) => handleProfileEditForm(e, router)}>
                   
 
                   {/* modal patient name */}
@@ -101,9 +106,7 @@ const EditProfileModal = ({name, image}) => {
                 
 
                   {/* modal submit btn */}
-                  <Button
-                 
-                     
+                  <Button  
                     type="submit"
                     className="w-full cursor-pointer h-14 mt-4 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
                   >
