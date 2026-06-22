@@ -7,13 +7,12 @@ export let handleProfileEditForm = async (e ) => {
     const formData = new FormData(e.target);
     const editProfileFormData = Object.fromEntries(formData.entries());
    
-    let {name, email, image} = editProfileFormData;
+    let {name, image} = editProfileFormData;
    
    try{
     
     let result = await authClient.updateUser({
        name,
-      email,
        image
     })
 
