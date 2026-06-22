@@ -1,15 +1,24 @@
-"use client"
+// "use client"
 
 
 import EditProfileModal from "@/Components/Shered/EditProfileModal/EditProfileModal";
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers"
+
 import { Avatar } from "@heroui/react";
 import { Mail, Phone, MapPin, Calendar, Pencil, User } from "lucide-react";
 
+export const metadata = {
+  title: "MyProfile - DocAppoint",
+  description: "Doctor Appointment MyProfile Page",
+};
 
-const MyProfilePage = () => {
 
-    const { data: session } = authClient.useSession()
+const MyProfilePage = async() => {
+
+    const session = await auth.api.getSession({
+           headers: await headers()
+       })
     // console.log(session?.user)
 
     

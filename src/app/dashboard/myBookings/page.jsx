@@ -2,6 +2,11 @@ import BookingCard from '@/Components/Shered/Booking Card/BookingCard';
 import { fetchAppointmentDoctorsData } from '@/Fetch Api/fetchApi';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "MyBookings - DocAppoint",
+  description: "Doctor Appointment MyBookings Page",
+};
+
 
 const MyBookingsPage = async () => {
     let appointmentDoctorsData = await fetchAppointmentDoctorsData();
