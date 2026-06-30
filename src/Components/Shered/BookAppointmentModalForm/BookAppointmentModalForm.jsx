@@ -24,7 +24,7 @@ let BookAppointmentModalForm = ({ name, image, specialty, rating }) => {
   return (
     <Modal>
       {/* book appointment */}
-      <Button className="w-full h-14 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+      <Button className="w-full hover:bg-[#f5f9f8] h-14 rounded-2xl hover:text-teal-500 bg-teal-500 border hover:border-teal-500 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
         <CalendarDays size={20} />
         Book Appointment
       </Button>

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { handleProfileEditForm } from "@/Services/Form Submit/ProfileEditForm";
 import {
@@ -13,21 +13,19 @@ import {
 import { CalendarDays, Pencil } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+const EditProfileModal = ({ name, image }) => {
+  let router = useRouter();
 
-
-const EditProfileModal = ({name, image}) => {
-
-  let router = useRouter()
-  
-  
   return (
     <>
       <Modal>
         {/* edit profile btn */}
-          <Button  className="h-12 px-6 rounded-xl border bg-teal-50 border-teal-500 text-teal-500 hover:bg-teal-100 cursor-pointer  flex items-center justify-center gap-2 font-medium">
+        <div className="flex justify-center">
+          <Button className="h-12  px-6 rounded-xl border bg-teal-50 border-teal-500 text-teal-500 hover:bg-teal-100 cursor-pointer  flex items-center justify-center gap-2 font-medium">
             <Pencil size={16} />
             Edit Profile
           </Button>
+        </div>
 
         {/* modal */}
         <Modal.Backdrop className="bg-black/40 backdrop-blur-sm">
@@ -49,8 +47,6 @@ const EditProfileModal = ({name, image}) => {
                     <Modal.Heading className="text-2xl font-bold text-slate-800">
                       Edit Profile
                     </Modal.Heading>
-
-                   
                   </div>
                 </div>
               </Modal.Header>
@@ -59,15 +55,13 @@ const EditProfileModal = ({name, image}) => {
               <Modal.Body className="px-7 pb-7">
                 {/* edit form */}
                 <form onSubmit={(e) => handleProfileEditForm(e, router)}>
-                  
-
                   {/* modal patient name */}
                   <TextField
                     defaultValue={name}
                     type="text"
                     isRequired
                     name="name"
-                    className={'mb-3'}
+                    className={"mb-3"}
                   >
                     <Label className="block mb-2 text-sm font-semibold text-slate-700">
                       Patient Name
@@ -81,7 +75,7 @@ const EditProfileModal = ({name, image}) => {
                     <FieldError className="text-rose-500 text-xs mt-1" />
                   </TextField>
                   {/* modal patient email */}
-               
+
                   {/* modal patient image url */}
                   <TextField
                     defaultValue={image}
@@ -100,13 +94,9 @@ const EditProfileModal = ({name, image}) => {
                     />
                     <FieldError className="text-rose-500 text-xs mt-1" />
                   </TextField>
-           
-                 
-
-                
 
                   {/* modal submit btn */}
-                  <Button  
+                  <Button
                     type="submit"
                     className="w-full cursor-pointer h-14 mt-4 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
                   >

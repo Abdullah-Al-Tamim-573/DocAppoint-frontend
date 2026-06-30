@@ -1,4 +1,7 @@
+import { FaArrowRightLong } from "react-icons/fa6";
+import WhiteBtn from "../Buttons/White Btns/WhiteBtn";
 import OurServicesCard from "../Our Services Card/OurServicesCard";
+import { ArrowRight } from "lucide-react";
 
 const OurServices = () => {
   return (
@@ -16,7 +19,7 @@ const OurServices = () => {
         </div>
         {/* View All Services btn */}
         <div>
-          <button className="inline-flex items-center gap-2 px-5 py-2.5 border border-teal-600/30 text-teal-600 font-medium text-sm rounded-xl hover:bg-teal-600 hover:text-white transition-all duration-300 shadow-sm">
+          {/* <button className="inline-flex items-center gap-2 px-5 py-2.5 border border-teal-600/30 text-teal-600 font-medium text-sm rounded-xl hover:bg-teal-600 hover:text-white transition-all duration-300 shadow-sm">
             View All Services
             <svg
               className="w-4 h-4"
@@ -31,7 +34,14 @@ const OurServices = () => {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </button>
+          </button> */}
+
+           <WhiteBtn
+            text={"View All Services"}
+            className={`hidden sm:flex hover:bg-teal-500 cursor-pointer  items-center gap-1.5 border border-teal-500 text-teal-600 px-5 py-2 rounded-full group hover:text-white transition-all duration-300 font-medium`}
+            icon={FaArrowRightLong}
+            iconClassName={`transition-transform group-hover:translate-x-1`}
+          ></WhiteBtn>
         </div>
       </div>
 
@@ -204,6 +214,13 @@ const OurServices = () => {
           cardTitle={"Eye Care"}
           cardDescription={"Vision and eye health care"}
         ></OurServicesCard>
+      </div>
+       {/* Mobile Button */}
+      <div className="mt-6 sm:hidden">
+        <button className="w-full flex items-center justify-center gap-2 border border-teal-500 text-teal-600 py-3 rounded-full hover:bg-teal-50 transition-all duration-300">
+          View All Services
+          <ArrowRight size={16} />
+        </button>
       </div>
     </div>
   );

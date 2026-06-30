@@ -7,9 +7,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import TealBtn from "../Buttons/Teal Btns/TealBtn";
 
 const DoctorCard = ({ doctorData }) => {
-  
   let {
     _id,
     name,
@@ -36,7 +36,7 @@ const DoctorCard = ({ doctorData }) => {
       shadow-sm 
          transition-all
     duration-300
-    cursor-pointer
+    
 
     hover:-translate-y-2
     hover:shadow-2xl
@@ -109,23 +109,29 @@ const DoctorCard = ({ doctorData }) => {
               </span>
             </div>
 
-            <Link
-              href={`/doctors/${_id}`}
-              className="
+           
+            <Link href={`/doctors/${_id}`}>
+              <TealBtn
+                icon={null}
+                iconClassName={null}
+                className={`
                   btn
-                  bg-teal-600
+                  bg-teal-500
                   text-white
-                 
+                  
                   font-medium
                   px-4
                   py-2
                   rounded-lg
                   transition-all
                   duration-300
-                  group-hover:bg-teal-700
-                "
-            >
-              View Details
+                  border
+                  group-hover:bg-white
+                  group-hover:text-teal-500
+                  group-hover:border-teal-500
+            `}
+                text={`View Details`}
+              ></TealBtn>
             </Link>
           </div>
         </div>

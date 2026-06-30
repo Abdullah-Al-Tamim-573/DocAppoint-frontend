@@ -7,6 +7,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import BannerFooterFeatures from "../Banner Footer Features/BannerFooterFeatures";
+import TealBtn from "../Buttons/Teal Btns/TealBtn";
+import Link from "next/link";
+import WhiteBtn from "../Buttons/White Btns/WhiteBtn";
 
 const Banner = () => {
   return (
@@ -23,9 +26,9 @@ const Banner = () => {
 
             {/* Main Heading */}
             <h1 className="text-[30px]  md:text-5xl font-extrabold text-[#111827] tracking-tight leading-tight">
-              Find Trusted Doctors & <br className="hidden xl:flex"/>
-              Book Appointments <br className="hidden xl:flex"/>
-               <span className="text-[#0D9488]">Instantly</span>
+              Find Trusted Doctors & <br className="hidden xl:flex" />
+              Book Appointments <br className="hidden xl:flex" />
+              <span className="text-[#0D9488]">Instantly</span>
             </h1>
 
             {/* Description */}
@@ -37,32 +40,65 @@ const Banner = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col justify-center xl:justify-start xl:justify-s sm:flex-row gap-4 pt-2">
               {/* book appointment btn*/}
-              <button className="inline-flex items-center justify-center gap-2 bg-[#0D9488] hover:bg-[#0F766E] text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 group shadow-sm shadow-[#0D9488]/20">
-                <span>Book Appointment</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </button>
+
+              <Link href={"/allAppointments"}>
+                <TealBtn
+                  text={"Book Appointment"}
+                  className={`inline-flex cursor-pointer items-center
+                     justify-center gap-2 bg-teal-500 hover:bg-white/80 border border-teal-500 hover:text-teal-500  text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 group shadow-sm shadow-[#0D9488]/20`}
+                  icon={ArrowRight}
+                  iconClassName={`w-5 h-5 transition-transform group-hover:translate-x-1`}
+                ></TealBtn>
+              </Link>
 
               {/* explore doctors btn */}
-              <button className="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-[#0D9488] font-semibold px-6 py-3.5 rounded-xl border-2 border-[#CCECE8] transition-all duration-200">
-                Explore Doctors
-              </button>
+
+              <Link href={"/allAppointments"}>
+                <WhiteBtn
+                  iconClassName={null}
+                  icon={null}
+                  text={"Explore Doctors"}
+                  className={`inline-flex
+                 text-teal-500 hover:bg-teal-500  hover:text-white transition-all
+                items-center justify-center bg-white  font-semibold px-6 py-3.5 rounded-xl border cursor-pointer 
+                border-teal-500  duration-300`}
+                ></WhiteBtn>
+              </Link>
             </div>
 
             {/* Banner Footer Features */}
             <div className="grid grid-cols-2 justify-between mx-auto  xl:justify-items-start  sm:grid-cols-3 gap-4 pt-6 relative left-2  w-[80%] sm:w-full sm:static ">
               {/* Verified Doctors */}
-              <BannerFooterFeatures text={'Verified Doctors'} icon={CheckCircle2} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
+              <BannerFooterFeatures
+                text={"Verified Doctors"}
+                icon={CheckCircle2}
+                iconClassName={"w-5 h-5 fill-[#0D9488] text-white"}
+              ></BannerFooterFeatures>
 
               {/* Secure & Safe */}
-              <BannerFooterFeatures text={'Secure & Safe'} icon={Shield} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
+              <BannerFooterFeatures
+                text={"Secure & Safe"}
+                icon={Shield}
+                iconClassName={"w-5 h-5 fill-[#0D9488] text-white"}
+              ></BannerFooterFeatures>
               {/* 24/7 Support */}
-              <BannerFooterFeatures text={'24/7 Support'} icon={Clock} iconClassName={'w-5 h-5 fill-[#0D9488] text-white'}></BannerFooterFeatures>
+              <BannerFooterFeatures
+                text={"24/7 Support"}
+                icon={Clock}
+                iconClassName={"w-5 h-5 fill-[#0D9488] text-white"}
+              ></BannerFooterFeatures>
             </div>
           </div>
         </div>
         {/* Banner Right Part */}
         <div className="w-[200px] md:w-[400px] xl:w-[500px]">
-              <Image className="w-full h-auto object-contain " src={'/Images/banner.png'} width={500} height={500} alt="banner image"></Image>
+          <Image
+            className="w-full h-auto object-contain "
+            src={"/Images/banner.png"}
+            width={500}
+            height={500}
+            alt="banner image"
+          ></Image>
         </div>
       </div>
     </div>

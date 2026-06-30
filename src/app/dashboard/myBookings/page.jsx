@@ -21,7 +21,7 @@ const MyBookingsPage = async () => {
             </p>
           </div>
 
-          <Link href={'/allAppointments'} className="hidden md:flex h-11 px-5 rounded-xl bg-teal-500 text-white items-center justify-center font-medium hover:bg-teal-600 duration-300">
+          <Link href={'/allAppointments'} className="hidden  md:flex h-11 px-5 rounded-xl bg-teal-500 text-white items-center justify-center font-medium border hover:text-teal-500 hover:bg-[#f5f9f8] hover:border-teal-500 duration-300">
             + Book New Appointment
           </Link>
         </div>

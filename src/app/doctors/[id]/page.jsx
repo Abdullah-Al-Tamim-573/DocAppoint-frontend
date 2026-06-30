@@ -8,7 +8,7 @@ import {
   Clock3,
   GraduationCap,
   Languages,
-  CalendarDays,
+ 
   
   MessageCircle,
   ArrowLeft,
@@ -45,7 +45,7 @@ const DoctorDetailsPage = async ({ params }) => {
         <div className="max-w-[90%] mx-auto px-4 md:px-6">
           {/* back btn */}
           <div className="">
-            <Link href={'/allAppointments'} className="group w-fit flex items-center gap-3 bg-[#11b8a5] hover:bg-[#0ea392] text-white font-semibold text-lg md:text-xl px-8 md:px-9 py-4 rounded-[22px] transition-all duration-300 shadow-lg hover:shadow-xl mb-4">
+            <Link href={'/allAppointments'}  className="group w-fit flex items-center gap-3 bg-[#11b8a5] hover:border-teal-500 hover:text-teal-500 border hover:bg-[#f5f9f8] text-white font-semibold text-lg md:text-xl px-8 md:px-9 py-4 rounded-[22px] transition-all duration-300 shadow-lg hover:shadow-xl mb-4">
               <ArrowLeft
                 size={26}
                 className="group-hover:-translate-x-1 transition-all duration-300"
@@ -115,7 +115,7 @@ const DoctorDetailsPage = async ({ params }) => {
                 {/* availability */}
                 <div className="flex items-center gap-3 text-slate-700">
                   <Clock3 size={20} className="text-teal-500" />
-                  <span>{availability[0]}</span>
+                  <span>{availability && availability[0]}</span>
                 </div>
                 {/* languages */}
                 <div className="flex items-center gap-3 text-slate-700">
@@ -160,7 +160,7 @@ const DoctorDetailsPage = async ({ params }) => {
                 <BookAppointmentModalForm name={name} image={image} specialty={specialty} rating={rating}></BookAppointmentModalForm>
               
 
-                <button className="w-full h-14 rounded-2xl border border-teal-500 text-teal-500 hover:bg-teal-50 font-semibold transition-all duration-300 flex items-center justify-center gap-2">
+                <button className="w-full hover:bg-teal-500  h-14 rounded-2xl border border-teal-500 text-teal-500 hover:text-white cursor-pointer font-semibold transition-all duration-300 flex items-center justify-center gap-2">
                   <MessageCircle size={20} />
                   Message Doctor
                 </button>

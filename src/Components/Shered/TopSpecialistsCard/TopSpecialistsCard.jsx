@@ -2,6 +2,7 @@ import { MapPin, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import TealBtn from '../Buttons/Teal Btns/TealBtn';
 
 const TopSpecialistsCard = ({doctor}) => {
     
@@ -79,24 +80,31 @@ const TopSpecialistsCard = ({doctor}) => {
                 </span>
               </p>
 
-              <Link
-              href={`/doctors/${_id}`}
-                className="
-                  btn
-                  bg-teal-600
-                  text-white
-                 
-                  font-medium
-                  px-4
-                  py-2
-                  rounded-lg
-                  transition-all
-                  duration-300
-                  group-hover:bg-teal-700
-                "
-              >
-                View Details
-              </Link>
+              
+               <Link href={`/doctors/${_id}`}>
+                            <TealBtn
+                              icon={null}
+                              iconClassName={null}
+                              className={`
+                                
+                                btn
+                                bg-teal-500
+                                text-white
+                                
+                                font-medium
+                                px-4
+                                py-2
+                                rounded-lg
+                                transition-all
+                                duration-300
+                                border
+                                group-hover:bg-white
+                                group-hover:text-teal-500
+                                group-hover:border-teal-500
+                          `}
+                              text={`View Details`}
+                            ></TealBtn>
+                          </Link>
             </div>
           </div>
             

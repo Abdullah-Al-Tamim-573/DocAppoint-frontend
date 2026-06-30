@@ -8,6 +8,8 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import { handleSignOut } from "@/Services/Form Submit/Authentication/SignOut";
 import { useRouter } from "next/navigation";
+import TealBtn from "../Buttons/Teal Btns/TealBtn";
+import WhiteBtn from "../Buttons/White Btns/WhiteBtn";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -71,14 +73,17 @@ export default function Navbar() {
           {/* conditionally show register, login and logout btn */}
           {session?.user ? (
             <>
+              {/* logIn user photo Avatar */}
               <Avatar>
                 <Avatar.Image
                   alt={session?.user?.name}
                   src={session?.user?.image}
                 />
-                <Avatar.Fallback>{session?.user?.name.slice(0,2)}</Avatar.Fallback>
+                <Avatar.Fallback>
+                  {session?.user?.name.slice(0, 2)}
+                </Avatar.Fallback>
               </Avatar>
-
+              {/* big screen logOut btn */}
               <Button
                 className={"hidden md:flex"}
                 onClick={() => handleSignOut(router)}
@@ -89,18 +94,30 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              {/* login button */}
+              {/* big screen login button */}
               <Link href="/login" className="hidden md:block">
-                <button className="h-10 cursor-pointer px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-50 transition-all duration-300 text-sm font-semibold">
-                  Log In
-                </button>
+               
+                <WhiteBtn
+                iconClassName={null}
+                  text={"Log In"}
+                  className={`h-10 btn bg-white  px-5 rounded-xl 
+                    border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-sm font-semibold`}
+                  icon={null}
+                ></WhiteBtn>
               </Link>
 
-              {/* register button */}
+              {/* big screen register button */}
               <Link href="/register" className="hidden md:block">
-                <button className="h-10 cursor-pointer px-5 rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 text-sm font-semibold shadow-md">
-                  Register
-                </button>
+                
+                <TealBtn
+                  iconClassName={null}
+                  icon={null}
+                  className={`h-10  px-5 btn rounded-xl text-white 
+                  transition-all duration-300 text-sm bg-teal-500
+                   hover:bg-white/80 border border-teal-500 hover:text-teal-500 
+                  font-semibold shadow-md`}
+                  text={"Register"}
+                ></TealBtn>
               </Link>
             </>
           )}
@@ -152,6 +169,7 @@ export default function Navbar() {
             {/* mobile buttons */}
             <div className="flex flex-col gap-3 pt-2">
               {session?.user ? (
+                // mobile Log Out btn
                 <Button
                   className={"w-full h-10 rounded-xl "}
                   onClick={() => handleSignOut(router)}
@@ -161,16 +179,29 @@ export default function Navbar() {
                 </Button>
               ) : (
                 <>
+                  {/* mobile LogIn btn  */}
                   <Link href="/login">
-                    <button className="w-full h-10 rounded-xl border border-teal-500 text-teal-500 font-semibold">
-                      Log In
-                    </button>
-                  </Link>
+                    
 
+                    <WhiteBtn
+                      text={"Log In"}
+                      className={`h-10 w-full btn bg-white px-5 rounded-xl border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-sm font-semibold`}
+                      icon={null}
+                      iconClassName={null}
+                    ></WhiteBtn>
+                  </Link>
+                  {/* mobile Register btn */}
                   <Link href="/register">
-                    <button className="w-full h-10 rounded-xl bg-teal-500 text-white font-semibold">
-                      Register
-                    </button>
+                    
+
+                    <TealBtn
+                      iconClassName={null}
+                      icon={null}
+                      className={`h-10 btn w-full box-border  px-5 rounded-xl text-white 
+                       transition-all duration-300 text-sm bg-teal-500 hover:bg-white/80 border border-teal-500 hover:text-teal-500 cursor-pointer
+                  font-semibold shadow-md`}
+                      text={"Register"}
+                    ></TealBtn>
                   </Link>
                 </>
               )}
